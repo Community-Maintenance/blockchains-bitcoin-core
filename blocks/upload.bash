@@ -9,7 +9,7 @@ do
 	fi
 	git annex add blk"$blknum" &&
 	git annex unlock blk"$blknum" &&
-	#git annex copy blk"$blknum" --to=skynet || exit -1
+	git annex copy blk"$blknum" --to=skynet --fast || exit -1
 	while ! git annex fsck -f skynet blk"$blknum"
 	do
 		git annex copy blk"$blknum" --to=skynet
